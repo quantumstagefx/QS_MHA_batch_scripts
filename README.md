@@ -1,7 +1,7 @@
 # Batch scripts for easy data preparation of stereo footage for Metahuman Animator
 A collection of scripts to batch convert captured stereo data into a format suitable for the MetaHuman ingestion process. Works with simple drag and drop of one or more files in Windows.
 
-## Overview
+## Overview & purpose
 
 **Batch process Facegood Streamer footage for MHA.bat**
 For use with footage recorded using Facegood's D4 stereo HMC using Avatary Streamer software. Expects pairs of two files as input and will match pairs when multiple takes are used. Will run ffmpeg to extract the audio to a wav file from the top camera footage and then run the Metahuman ingestion Python script.
@@ -16,7 +16,7 @@ Used to run the calibration app by drag and dropping a prepared calibration take
 Used for removing _clean the end of filenames generated using the denoising scripts. Mostly in pair with Streamer recordings as otherwise the batch script wont work,
 
 
-## Setup & prerequisits
+## Setup & prerequisites
 These scripts assume you installed all the prequisits of the official Metahuman Animator stereo ingestion pipeline.  These are mainly ffmpeg, Python and the stereo calibration app along with setting the correct environment path variables in Windows. See the official Metahuman guidelines for more details. 
 
 #### Set the path to the mh_ingest_convert.cs Python script
@@ -41,7 +41,7 @@ This string will both be appended at the end of the filenames as well as at the 
 
 ## Using the batch scripts
 
-In order to make use of the batch script, simply drag and drop your footage video files ontu the shortcut for the relevant script. You can drag as many files as you want and the script will go through all of them. 
+In order to make use of the batch script, simply drag and drop your footage video files onto the shortcut for the relevant script. You can drag as many files as you want and the script will go through all of them. 
 
 For Facegood Streamer recordings, or other stereo footage pairs, the script expects pairs of two video files. In this case .mov files ending in **_CH_0** for the top camera footage and **_CH_1** for the bottom camera footage. You can modify the batch script yourself to fit your capture format and naming convetion. 
 
@@ -78,11 +78,11 @@ to:
 
 This will make it so that the new filename of the denoised video clip will contain its original filename plus _clean at the end.
 
-The denoising script works the same way as the other batch scripts via creating a shortcut and then drag and dropping the files ontu the shortcut. It will work with multiple files so its very convenient to batch process multiple clips.
+The denoising script works the same way as the other batch scripts via creating a shortcut and then drag and dropping the files onto the shortcut. It will work with multiple files so its very convenient to batch process multiple clips.
 
 ## Using the calibration batch script
 
-This script was done for the lazy and simple runs the Metahuman stereo calibration app with whatever ingestion prepared folder was dropped ontu the shortcut. It will require a calibration board configuration file called `hmc_config.json` in the same folder as the batch script in order to work. 
+This script was done for the lazy and simple runs the Metahuman stereo calibration app with whatever ingestion prepared folder was dropped onto the shortcut. It will require a calibration board configuration file called `hmc_config.json` in the same folder as the batch script in order to work. 
 
 You can find the one for the official Epic calibration board config inside  the calibration app folder usually at `C:\Program Files\Epic Games\Calibration App\default_hmc_config.json`.
 
