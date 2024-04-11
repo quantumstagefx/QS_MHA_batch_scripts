@@ -1,5 +1,5 @@
 # Batch scripts for easy data preparation of stereo footage for Metahuman Animator
-A collection of scripts to batch convert captured stereo data into a format suitable for the MetaHuman ingestion process. Works with simple drag and drop of one or more files in Windows.
+A collection of scripts to batch convert captured stereo data into a format suitable for the MetaHuman ingestion process. Works with simple drag and drop of one or more files in Windows. Has been tested with the only stereo HMC data available to me thus far (Facegood D4) using their own and the OBS recording software. Should easily work with other stereo capture footage in theory or with minor script adjustments.
 
 ## Overview & purpose
 
@@ -63,7 +63,7 @@ For my own process of using the D4 stereo footage, I've used the denoiser before
 
 You can find the denoising batch scripts inside the Denoiser folder of the script collection. Then there are multiple sub folders for each video codec. 
 
-The denoiser scripts will generate a new file with the used denoising parameters at the end of the filename. Because this new filename is not compatible with the rest of the batch scripts we must adjust their code as follows:
+The denoiser scripts will generate a new file with the used denoising parameters at the end of the filename. Because this new filename is not compatible with the rest of the batch scripts we must adjust the denoising script as follows:
 
 **First:** Find the denoiser you want to use. For example: Prores Very High
 **Then:** Change the copy parameter of the ffmpeg command at the end of line 30, just below "encoding:" to copy "%~dp1%newdir%\%~n1_clean.mov"
