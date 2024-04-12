@@ -78,6 +78,14 @@ to:
 
 This will make it so that the new filename of the denoised video clip will contain its original filename plus _clean at the end.
 
+If you use the denoiser with footage recorded with Facegood's Streamer software then you need no add one more parameter to the ffmpeg command in order to include the rotational metadata in the source recording. This parameter is:
+
+`-display_rotation:v:0 -90`
+
+So the full line to replace would look like this:
+
+`apps\ffmpeg\ffmpeg.exe -y -display_rotation:v:0 -90 -i "%~dp1%newdir%\%~nx1.avs" -i "%~f1" -map 0:v:0 -map 1:a? -metadata:s "encoder=Apple ProRes 422" -vendor apl0 -movflags write_colr -chunk_duration 500K -c:v prores_ks -profile:v 2 -qscale:v 4 -c:a copy "%~dp1%newdir%\%~n1_clean.mov"`
+
 The denoising script works the same way as the other batch scripts via creating a shortcut and then drag and dropping the files onto the shortcut. It will work with multiple files so its very convenient to batch process multiple clips.
 
 ## Using the calibration batch script
